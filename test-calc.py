@@ -1,6 +1,7 @@
 import unittest
 from calc import calculator
 
+#testing
 mycalc = calculator(10,5)
 class test_calc(unittest.TestCase):
     def test_add(self):
