@@ -20,12 +20,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          # Since you're only using a built-in library, no other installations are needed.
-
+          
       - name: Run tests
         run: |
           python test-calc.py
