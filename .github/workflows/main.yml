@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-  
+ 
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,26 +21,15 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Run tests
+      - name: Install dependencies
         run: |
-          python test-calc.py
-      
-      - name: install dependencies
-        run : |
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          pip install coverage
 
-      - name: coverage
-        run : |
+      - name: Run tests with coverage
+        run: |
           coverage run test-calc.py
-      
-      - name: Check coverage threshold
-        if: ${{ env.coverage >= 80 }}
-        run: | 
-          echo "Code coverage is sufficient: ${{ env.coverage }}%"
-
-      - name: Fail if coverage is below threshold
-        if: ${{ env.coverage < 80 }}
-        run: |
-          echo "Code coverage is below threshold: ${{ env.coverage }}%"
-          exit 1
           
+      - name: Generate coverage report and check threshold
+        run: |
+          coverage report --fail-under=80
