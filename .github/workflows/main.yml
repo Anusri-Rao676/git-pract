@@ -32,4 +32,5 @@ jobs:
           
       - name: Generate coverage report and check threshold
         run: |
+          coverage html
           coverage report --fail-under=80
