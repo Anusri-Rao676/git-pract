@@ -32,4 +32,15 @@ jobs:
       - name: coverage
         run : |
           coverage run test-calc.py
+      
+      - name: Check coverage threshold
+        if: ${{ env.coverage >= 80 }}
+        run: | 
+          echo "Code coverage is sufficient: ${{ env.coverage }}%"
+
+      - name: Fail if coverage is below threshold
+        if: ${{ env.coverage < 80 }}
+        run: |
+          echo "Code coverage is below threshold: ${{ env.coverage }}%"
+          exit 1
           
