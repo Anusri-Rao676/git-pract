@@ -31,5 +31,5 @@ jobs:
 
       - name: coverage
         run : |
-          coverage run -m test-calc.py
+          coverage run test-calc.py
           
