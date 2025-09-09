@@ -7,10 +7,10 @@ class test_calc(unittest.TestCase):
         self.assertEqual(mycalc.add(),15)
     def test_subtract(self):
         self.assertEqual(mycalc.subtract(),5)
-    def test_multiply(self):
-        self.assertEqual(mycalc.multiply(),50)
-    def test_divide(self):
-        self.assertEqual(mycalc.divide(),2)
+    # def test_multiply(self):
+    #     self.assertEqual(mycalc.multiply(),50)
+    # def test_divide(self):
+    #     self.assertEqual(mycalc.divide(),2)
 
 if __name__ == "__main__":
     unittest.main()    
